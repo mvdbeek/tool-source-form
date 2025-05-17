@@ -1,4 +1,4 @@
-# JSON Forms React seed App
+# Galaxy Tool Source Form
 
 This seed demonstrates how to use [JSON Forms](https://jsonforms.io) with React in order to render a simple form for displaying a task entity.
 
@@ -9,6 +9,22 @@ It is based on `create-react-app` and only contains minor modifications.
 - Execute `npm start` to start the application.
 
 Browse to http://localhost:3000 to see the application in action.
+
+## Deployment to GitHub Pages
+
+This project is configured for easy deployment to GitHub Pages:
+
+1. Edit the `homepage` field in `package.json` to match your GitHub username and repository name:
+   ```json
+   "homepage": "https://YOUR_USERNAME.github.io/galaxy-tool-source-form"
+   ```
+
+2. Deploy the application to GitHub Pages:
+   ```bash
+   npm run deploy
+   ```
+
+The application will be available at `https://YOUR_USERNAME.github.io/galaxy-tool-source-form`.
 
 ## File Structure
 

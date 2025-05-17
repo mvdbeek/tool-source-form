@@ -10,7 +10,6 @@ import {
 import RatingControl from './RatingControl';
 import ratingControlTester from '../ratingControlTester';
 import schema from '../schema.json';
-import uischema from '../uischema.json';
 
 const classes = {
   container: {
@@ -39,11 +38,38 @@ const classes = {
 };
 
 const initialData = {
-  name: 'Send email to Adrian',
-  description: 'Confirm if you have passed the subject\nHereby ...',
-  done: true,
-  recurrence: 'Daily',
-  rating: 3,
+  class: 'GalaxyUserTool',
+  id: 'cat_user_defined',
+  version: '0.1',
+  name: 'cat_user_defined',
+  description: 'concatenates a file',
+  container: 'busybox',
+  shell_command: "cat '$(inputs.input1.path)' > output.txt",
+  inputs: [
+    {
+      name: 'input1',
+      type: 'data',
+      format: 'txt',
+    },
+  ],
+  outputs: [
+    {
+      name: 'output1',
+      type: 'data',
+      format: 'txt',
+      from_work_dir: 'output.txt',
+    },
+  ],
+  tests: [
+    {
+      inputs: {
+        input1: 'simple_line.txt',
+      },
+      outputs: {
+        output1: 'simple_line.txt',
+      },
+    },
+  ],
 };
 
 const renderers = [
@@ -52,7 +78,7 @@ const renderers = [
   { tester: ratingControlTester, renderer: RatingControl },
 ];
 
-export const JsonFormsDemo: FC = () => {
+export const ToolSourceComponent: FC = () => {
   const [data, setData] = useState<object>(initialData);
   const stringifiedData = useMemo(() => JSON.stringify(data, null, 2), [data]);
 
@@ -84,7 +110,6 @@ export const JsonFormsDemo: FC = () => {
         <div style={classes.demoform}>
           <JsonForms
             schema={schema}
-            uischema={uischema}
             data={data}
             renderers={renderers}
             cells={materialCells}

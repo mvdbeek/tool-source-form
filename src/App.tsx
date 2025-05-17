@@ -1,12 +1,12 @@
 import './App.css';
 import { Header } from './components/Header';
-import { JsonFormsDemo } from './components/JsonFormsDemo';
+import { ToolSourceComponent } from './components/ToolSchema';
 
 const App = () => {
   return (
     <>
       <Header />
-      <JsonFormsDemo />
+      <ToolSourceComponent />
     </>
   );
 };
